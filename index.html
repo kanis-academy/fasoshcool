@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b7a53">
+  <title>FasoShcool — Apprendre, progresser, réussir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="dashboard" aria-label="FasoShcool accueil">
+        <span class="brand-mark">F<span>S</span></span>
+        <span><strong>FasoShcool</strong><small>Réussir ensemble 🇧🇫</small></span>
+      </a>
+      <div class="side-label">ESPACE ÉLÈVE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Tableau de bord</button>
+        <button class="nav-item" data-page="courses"><span>▤</span> Mes cours</button>
+        <button class="nav-item" data-page="exercises"><span>✎</span> Exercices & quiz</button>
+        <button class="nav-item" data-page="progress"><span>▥</span> Ma progression</button>
+      </nav>
+      <div class="side-label">PERSONNEL</div>
+      <nav class="nav">
+        <button class="nav-item" data-page="settings"><span>⚙</span> Paramètres</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon">✦</span><strong>Tu peux y arriver !</strong><p>Un petit effort chaque jour mène loin.</p></div>
+        <button class="logout-button" id="logoutBtn">↪ Déconnexion</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Ouvrir le menu">☰</button>
+        <div class="breadcrumb">FasoShcool <span>/</span> <b id="pageCrumb">Tableau de bord</b></div>
+        <div class="top-actions">
+          <button class="icon-button" id="themeBtn" title="Changer de thème" aria-label="Changer de thème">☾</button>
+          <button class="profile-chip" id="profileTop"><span class="avatar" id="topAvatar">É</span><span><b id="topName">Élève</b><small id="topClass">Classe à définir</small></span><span class="chevron">⌄</span></button>
+        </div>
+      </header>
+
+      <section class="page active" id="page-dashboard">
+        <div class="welcome-banner">
+          <div class="welcome-copy"><span class="eyebrow">TON ESPACE D'APPRENTISSAGE 🇧🇫</span><h1>Bonjour <span id="welcomeName">élève</span> 👋</h1><p>Prêt à apprendre quelque chose de nouveau aujourd'hui ?</p><button class="primary-button" data-page="courses">Explorer mes cours <span>→</span></button></div>
+          <div class="welcome-art"><div class="sun"></div><div class="book book-back"></div><div class="book book-front"><span>ABC</span><i>✦</i></div><div class="plant">✿</div></div>
+        </div>
+        <div class="section-heading"><div><h2>Ton espace scolaire</h2><p>Tout ce qu'il te faut pour progresser.</p></div><span class="class-pill" id="classPill">Classe non définie</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon green">▤</div><div><span>Cours disponibles</span><strong>12</strong><small>Pour commencer à réviser</small></div></article>
+          <article class="stat-card"><div class="stat-icon orange">✎</div><div><span>Quiz à essayer</span><strong>4</strong><small>Teste tes connaissances</small></div></article>
+          <article class="stat-card"><div class="stat-icon purple">♧</div><div><span>Progression</span><strong id="progressStat">0%</strong><small>Continue tes efforts</small></div></article>
+        </div>
+        <div class="content-grid">
+          <div class="panel">
+            <div class="panel-heading"><div><h3>Apprendre par matière</h3><p>Choisis une matière pour commencer.</p></div><button class="text-button" data-page="courses">Voir tout →</button></div>
+            <div class="subject-list">
+              <button class="subject-row" data-subject="Mathématiques"><span class="subject-icon math">π</span><span class="subject-info"><b>Mathématiques</b><small>Nombres, calculs et problèmes</small></span><span class="subject-arrow">→</span></button>
+              <button class="subject-row" data-subject="Français"><span class="subject-icon french">Aa</span><span class="subject-info"><b>Français</b><small>Grammaire, conjugaison, rédaction</small></span><span class="subject-arrow">→</span></button>
+              <button class="subject-row" data-subject="SVT"><span class="subject-icon svt">♧</span><span class="subject-info"><b>SVT</b><small>Le vivant et l'environnement</small></span><span class="subject-arrow">→</span></button>
+              <button class="subject-row" data-subject="Histoire-Géographie"><span class="subject-icon geo">◎</span><span class="subject-info"><b>Histoire-Géographie</b><small>Comprendre le monde</small></span><span class="subject-arrow">→</span></button>
+            </div>
+          </div>
+          <div class="panel daily-panel"><div class="panel-heading"><div><h3>Objectif du jour</h3><p>Avance à ton rythme.</p></div><span class="target-icon">✦</span></div><div class="goal-ring"><div><strong id="goalPercent">0%</strong><small>terminé</small></div></div><h4>15 minutes pour apprendre</h4><p class="muted">Lis une leçon et réponds à quelques questions pour progresser chaque jour.</p><button class="secondary-button full" data-page="exercises">Faire un quiz <span>→</span></button></div>
+        </div>
+        <div class="notice"><span>💡</span><p><b>Conseil :</b> révise un peu chaque jour, fais les exercices et prends le temps de comprendre tes erreurs.</p></div>
+      </section>
+
+      <section class="page" id="page-courses">
+        <div class="page-title"><span class="eyebrow">APPRENDRE À TON RYTHME</span><h1>Mes cours 📚</h1><p>Des bases solides pour réussir à l'école.</p></div>
+        <div class="filter-row"><label class="search-box">⌕ <input id="courseSearch" placeholder="Rechercher une matière ou une leçon…"></label><select id="courseLevel" aria-label="Filtrer par classe"><option value="all">Ma classe</option><option>6e</option><option>5e</option><option>4e</option><option>3e</option></select></div>
+        <div class="course-grid" id="courseGrid"></div>
+        <div class="panel curriculum-panel"><div><span class="eyebrow">RÉFÉRENCE PÉDAGOGIQUE</span><h3>Programme scolaire du Burkina Faso 🇧🇫</h3><p>Les leçons définitives doivent être vérifiées à partir des curricula et ressources pédagogiques officiels. Consulte aussi la plateforme nationale Faso e-education.</p><a class="primary-button curriculum-link" href="https://fasoeducation.bf/espace-eleves/postprimaire/postprimaire-general.html" target="_blank" rel="noopener">Consulter les cours officiels ↗</a></div></div>
+      </section>
+
+      <section class="page" id="page-exercises">
+        <div class="page-title"><span class="eyebrow">ENTRAÎNEMENT</span><h1>Exercices & quiz ✏️</h1><p>Entraîne-toi, vérifie tes réponses et apprends de tes erreurs.</p></div>
+        <div class="quiz-layout">
+          <div class="panel quiz-panel"><div class="quiz-top"><span class="quiz-tag">QUIZ DÉCOUVERTE</span><span id="quizCount">Question 1 / 4</span></div><div class="quiz-progress"><span id="quizProgress"></span></div><h2 id="quizQuestion">Combien font 7 × 8 ?</h2><div id="quizOptions" class="quiz-options"></div><div id="quizFeedback" class="quiz-feedback" hidden></div><div class="quiz-footer"><button class="secondary-button" id="restartQuiz">Recommencer</button><button class="primary-button" id="nextQuestion" disabled>Valider / Suivant →</button></div></div>
+          <aside class="panel quiz-side"><div class="quiz-side-icon">🏆</div><h3>Chaque essai compte !</h3><p>Prends ton temps. Lis bien la question avant de choisir ta réponse.</p><div class="mini-stat"><span>Meilleur score</span><b id="bestScore">—</b></div><div class="mini-stat"><span>Dernier résultat</span><b id="lastScore">—</b></div></aside>
+        </div>
+        <div class="panel tutor-panel">
+          <div class="tutor-header"><div class="tutor-avatar">🎓</div><div><span class="eyebrow">TON PROFESSEUR NUMÉRIQUE</span><h2>Prof Faso 🇧🇫</h2><p>Explique ton exercice et découvre les étapes de correction.</p></div><span class="demo-tag">Version de démonstration</span></div>
+          <label class="tutor-label" for="studentExercise">Écris l'énoncé et ta réponse</label>
+          <textarea id="studentExercise" rows="4" placeholder="Exemple : 3x + 5 = 20. J'ai trouvé x = 5. Explique-moi si c'est correct…"></textarea>
+          <div class="tutor-actions"><button class="primary-button" id="showMyExercise">Montrer mon exercice →</button><button class="secondary-button" id="tryExample">Essayer un exemple</button></div>
+          <div id="tutorAnswer" class="tutor-answer" hidden aria-live="polite"></div>
+          <p class="tutor-note">Pour l'instant, Prof Faso propose des corrections guidées pour quelques exemples. La correction libre de tous les exercices nécessitera de connecter un service d'IA à un serveur sécurisé.</p>
+        </div>
+      </section>
+
+      <section class="page" id="page-progress">
+        <div class="page-title"><span class="eyebrow">TES EFFORTS PORTENT LEURS FRUITS</span><h1>Ma progression 📈</h1><p>Retrouve ici tes résultats sur cet appareil.</p></div>
+        <div class="stats-grid"><article class="stat-card"><div class="stat-icon green">✓</div><div><span>Quiz terminés</span><strong id="completedQuizzes">0</strong><small>Continue à t'entraîner</small></div></article><article class="stat-card"><div class="stat-icon purple">★</div><div><span>Meilleur score</span><strong id="progressBest">—</strong><small>Ton meilleur résultat</small></div></article><article class="stat-card"><div class="stat-icon orange">↗</div><div><span>Leçons consultées</span><strong id="lessonsRead">0</strong><small>Une étape à la fois</small></div></article></div>
+        <div class="panel progress-panel"><h3>Ton parcours</h3><p class="muted">La progression sera calculée à partir des activités réalisées sur cet appareil dans cette version de démonstration.</p><div class="big-progress"><div><span>Quiz et exercices</span><b id="progressLabel">0%</b></div><div class="bar"><span id="progressBar"></span></div></div></div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="page-title"><span class="eyebrow">PERSONNALISE TON ESPACE</span><h1>Paramètres ⚙️</h1><p>Gère ton profil et choisis comment utiliser FasoShcool.</p></div>
+        <div class="settings-layout">
+          <div class="settings-tabs panel"><button class="settings-tab active" data-setting="profile">♙ <span>Mon profil</span></button><button class="settings-tab" data-setting="preferences">☼ <span>Préférences</span></button><button class="settings-tab" data-setting="privacy">♧ <span>Confidentialité</span></button></div>
+          <div class="panel settings-content">
+            <div class="settings-section active" id="setting-profile"><div class="settings-heading"><div><h2>Informations personnelles</h2><p>Ces informations permettent d'adapter les cours à ta classe.</p></div><span class="avatar large" id="settingsAvatar">É</span></div><form id="profileForm" class="form-grid">
+              <label>Nom<input name="nom" id="nom" required maxlength="60" placeholder="Ton nom de famille"></label>
+              <label>Prénom<input name="prenom" id="prenom" required maxlength="60" placeholder="Ton prénom"></label>
+              <label>Adresse e-mail<input name="email" id="email" type="email" required placeholder="exemple@email.com"></label>
+              <label>Numéro de téléphone<input name="telephone" id="telephone" type="tel" placeholder="+226 70 00 00 00"></label>
+              <label>Âge<input name="age" id="age" type="number" min="9" max="25" required placeholder="Ex. 13"></label>
+              <label>Classe<select name="classe" id="classe" required><option value="">Choisir ta classe</option><option value="6e">6e</option><option value="5e">5e</option><option value="4e">4e</option><option value="3e">3e</option></select></label>
+              <div class="form-actions"><span id="profileMessage" role="status"></span><button class="primary-button" type="submit">Enregistrer les modifications</button></div>
+            </form></div>
+            <div class="settings-section" id="setting-preferences"><div class="settings-heading"><div><h2>Préférences</h2><p>Fais de FasoShcool un espace qui te ressemble.</p></div></div><div class="preference-row"><div><b>Thème sombre</b><p>Réduire la luminosité de l'interface.</p></div><button class="toggle" id="settingsTheme" role="switch" aria-checked="false"><span></span></button></div><div class="preference-row"><div><b>Animations de l'interface</b><p>Activer les petites animations visuelles.</p></div><button class="toggle on" id="motionToggle" role="switch" aria-checked="true"><span></span></button></div><div class="preference-row"><div><b>Classe actuelle</b><p>Modifie ta classe dans la section « Mon profil ».</p></div><span class="class-pill" id="prefClass">Non définie</span></div></div>
+            <div class="settings-section" id="setting-privacy"><div class="settings-heading"><div><h2>Confidentialité & données</h2><p>Quelques informations importantes sur cette version.</p></div></div><div class="privacy-box"><b>🔒 Tes données sur cet appareil</b><p>Cette maquette conserve le profil dans le stockage local de ton navigateur. Les données ne sont pas envoyées à un serveur et ne permettent pas encore une vraie connexion sur plusieurs appareils.</p></div><button class="danger-button" id="deleteData">Effacer mes données locales</button></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer"><span>🇧🇫 FasoShcool</span><span>Apprendre aujourd'hui, réussir demain.</span><span>Version de démonstration</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="authModal">
+    <div class="auth-card">
+      <div class="auth-brand"><span class="brand-mark">F<span>S</span></span><span><strong>FasoShcool</strong><small>Ton école, partout avec toi 🇧🇫</small></span></div>
+      <div class="auth-illustration"><span class="auth-star star-one">✦</span><div class="auth-book">📚</div><span class="auth-star star-two">✦</span></div>
+      <span class="eyebrow">BIENVENUE DANS TA COMMUNAUTÉ</span><h1>Apprends. Progresse. Réussis.</h1><p class="auth-description">Crée ton profil pour retrouver les cours adaptés à ta classe.</p>
+      <form id="signupForm" class="signup-form">
+        <div class="two-fields"><label>Nom<input id="signupNom" required maxlength="60" placeholder="Nom de famille"></label><label>Prénom<input id="signupPrenom" required maxlength="60" placeholder="Prénom"></label></div>
+        <label>Adresse e-mail<input id="signupEmail" type="email" required placeholder="exemple@email.com"></label>
+        <label>Numéro de téléphone <span class="optional">(facultatif)</span><input id="signupPhone" type="tel" placeholder="+226 70 00 00 00"></label>
+        <div class="two-fields"><label>Âge<input id="signupAge" type="number" min="9" max="25" required placeholder="Ex. 13"></label><label>Ma classe<select id="signupClass" required><option value="">Choisir</option><option value="6e">6e</option><option value="5e">5e</option><option value="4e">4e</option><option value="3e">3e</option></select></label></div>
+        <label class="consent"><input type="checkbox" id="consent" required><span>Je comprends que cette version de démonstration enregistre mon profil uniquement sur cet appareil.</span></label>
+        <button type="submit" class="primary-button full">Créer mon espace élève <span>→</span></button>
+      </form>
+      <p class="auth-foot">Gratuit • Simple • Pensé pour les élèves du Burkina Faso</p>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
